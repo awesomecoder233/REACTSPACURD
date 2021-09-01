@@ -9,12 +9,23 @@ export default class App extends Component {
             task: [] 
         };
         this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
     handleChange(e) {
         this.setState({
             name: e.target.value
         });
         console.log('onChange', this.state.name);
+    }
+    handleSubmit(e) {
+        e.preventDefault();
+        axios
+            .post('/tasks', {
+                name: this.state.name
+            })
+            .then(response => {
+                console.log('from handle submit', response);
+            });
     }
     render() {
         return (
@@ -24,7 +35,7 @@ export default class App extends Component {
                         <div className="card">
                             <div className="card-header">Create Task</div>
                             <div className="card-body">
-                                <form>
+                                <form onSubmit={this.handleSubmit}>
                                     <div className="form-group">
                                         <textarea onChange={this.handleChange} value={this.state.name} className="form-control" rows="5" placeholder="Create a new task" required/>
                                     </div>
