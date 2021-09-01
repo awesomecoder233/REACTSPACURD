@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
+    // apply auth middleware so only authenticated users have access
+    public function __construct() {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +17,12 @@ class TaskController extends Controller
      */
     public function index()
     {
-        //
+        //get all the tasks based on current user id
+        $allTasks = $task->whereIn('user_id', $request->user())->with('user');
+        $tasks = $allTasks->orderBy('created_at', 'desc')->take(10)->get();
+        return response()->json([
+            'tasks' => $tasks,
+        ]);
     }
 
     /**
