@@ -25,6 +25,12 @@ export default class App extends Component {
             })
             .then(response => {
                 console.log('from handle submit', response);
+                this.setState({
+                   tasks : [response.data, ...this.state.tasks] 
+                });
+                this.setState({
+                   name: '' 
+                });
             });
     }
     render() {
