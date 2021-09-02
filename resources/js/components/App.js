@@ -33,6 +33,15 @@ export default class App extends Component {
                 });
             });
     }
+    renderTasks() {
+        return this.state.tasks.map(task => (
+            <div key={task.id} className="media">
+                <div className="media-body">
+                    <p>{task.name}</p>
+                </div>
+            </div>
+        ));
+    }
     render() {
         return (
             <div className="container">
