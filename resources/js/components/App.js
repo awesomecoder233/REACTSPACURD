@@ -36,6 +36,7 @@ export default class App extends Component {
             });
     }
     renderTasks() {
+        this.state.tasks = [];
         return this.state.tasks.map(task => (
             <div key={task.id} className="media">
                 <div className="media-body">
@@ -57,7 +58,9 @@ export default class App extends Component {
                                         <textarea onChange={this.handleChange} value={this.state.name} className="form-control" rows="5" placeholder="Create a new task" required/>
                                     </div>
                                     <button type="submit" className="btn btn-primary">Create Task</button>
-                                </form>    
+                                </form>
+                                <hr />
+                                {this.renderTasks()}    
                             </div>
                         </div>
                     </div>
