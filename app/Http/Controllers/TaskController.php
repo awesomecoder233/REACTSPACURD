@@ -11,7 +11,7 @@ class TaskController extends Controller {
 		$this->middleware('auth');
 	}
 
-	public function index(Request $request, Task $task) {
+	public function index() {
 		// get all the tasks based on current user id
 		$allTasks = $task->whereIn('user_id', $request->user())->with('user');
 		$tasks = $allTasks->orderBy('created_at', 'desc')->take(10)->get();
