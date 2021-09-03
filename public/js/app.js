@@ -1934,6 +1934,7 @@ var App = /*#__PURE__*/function (_Component) {
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.renderTasks = _this.renderTasks.bind(_assertThisInitialized(_this));
+    _this.handleDelete = _this.handleDelete.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -1968,13 +1969,21 @@ var App = /*#__PURE__*/function (_Component) {
   }, {
     key: "renderTasks",
     value: function renderTasks() {
+      var _this3 = this;
+
       return this.state.tasks.map(function (task) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "media",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "media-body",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-              children: task.name
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
+              children: [task.name, '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+                onClick: function onClick() {
+                  return _this3.handleDelete(task.id);
+                },
+                className: "btn btn-sm btn-warning float-right",
+                children: "Delete"
+              })]
             })
           })
         }, task.id);
@@ -1984,10 +1993,10 @@ var App = /*#__PURE__*/function (_Component) {
   }, {
     key: "getTasks",
     value: function getTasks() {
-      var _this3 = this;
+      var _this4 = this;
 
       axios__WEBPACK_IMPORTED_MODULE_2___default().get('/tasks').then(function (response) {
-        return _this3.state({
+        return _this4.state({
           tasks: _toConsumableArray(response.data.tasks)
         });
       });
@@ -1997,6 +2006,21 @@ var App = /*#__PURE__*/function (_Component) {
     key: "componentWillMount",
     value: function componentWillMount() {
       this.getTasks();
+    }
+  }, {
+    key: "handleDelete",
+    value: function handleDelete(id) {
+      // remove from local state
+      var isNotId = function isNotId(task) {
+        return task.id !== id;
+      };
+
+      var updatedTasks = this.state.tasks.filter(isNotId);
+      this.setState({
+        tasks: updatedTasks
+      }); // make delete request to the backend
+
+      axios__WEBPACK_IMPORTED_MODULE_2___default().delete("/tasks/".concat(id));
     }
   }, {
     key: "render",
