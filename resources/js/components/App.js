@@ -45,6 +45,19 @@ export default class App extends Component {
             </div>
         ));
     }
+    // get all tasks from backend
+    getTasks(){
+        axios.get('/tasks').then((
+                response
+            ) => this.state({
+                tasks: [...response.data.tasks]
+            })
+        );
+    }
+    //lifecycle method
+    componentWillMount() {
+        this.getTasks();
+    }
     render() {
         return (
             <div className="container">

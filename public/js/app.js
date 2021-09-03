@@ -1980,6 +1980,24 @@ var App = /*#__PURE__*/function (_Component) {
           })
         }, task.id);
       });
+    } // get all tasks from backend
+
+  }, {
+    key: "getTasks",
+    value: function getTasks() {
+      var _this3 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_2___default().get('/tasks').then(function (response) {
+        return _this3.state({
+          tasks: _toConsumableArray(response.data.tasks)
+        });
+      });
+    } //lifecycle method
+
+  }, {
+    key: "componentWillMount",
+    value: function componentWillMount() {
+      this.getTasks();
     }
   }, {
     key: "render",
