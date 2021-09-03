@@ -7,7 +7,7 @@ export default class App extends Component {
         super(props);
         this.state = {
             name: '',
-            task: [] 
+            tasks: [], 
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -36,7 +36,6 @@ export default class App extends Component {
             });
     }
     renderTasks() {
-        this.state.tasks = [];
         return this.state.tasks.map(task => (
             <div key={task.id} className="media">
                 <div className="media-body">

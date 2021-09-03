@@ -1929,7 +1929,7 @@ var App = /*#__PURE__*/function (_Component) {
     _this = _super.call(this, props);
     _this.state = {
       name: '',
-      task: []
+      tasks: []
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
@@ -1968,7 +1968,6 @@ var App = /*#__PURE__*/function (_Component) {
   }, {
     key: "renderTasks",
     value: function renderTasks() {
-      this.state.tasks = [];
       return this.state.tasks.map(function (task) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
           className: "media",
