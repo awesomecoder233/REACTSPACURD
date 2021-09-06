@@ -1988,8 +1988,7 @@ var App = /*#__PURE__*/function (_Component) {
           })
         }, task.id);
       });
-    } // get all tasks from backend
-
+    }
   }, {
     key: "getTasks",
     value: function getTasks() {
@@ -2000,8 +1999,7 @@ var App = /*#__PURE__*/function (_Component) {
           tasks: _toConsumableArray(response.data.tasks)
         });
       });
-    } //lifecycle method
-
+    }
   }, {
     key: "componentWillMount",
     value: function componentWillMount() {
