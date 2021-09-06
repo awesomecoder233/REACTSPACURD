@@ -62,7 +62,6 @@ export default class App extends Component {
             })
         );
     }
-    //lifecycle method
     componentWillMount() {
         this.getTasks();
     }
