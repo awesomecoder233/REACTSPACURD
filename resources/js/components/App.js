@@ -53,7 +53,6 @@ export default class App extends Component {
             </div>
         ));
     }
-    // get all tasks from backend
     getTasks(){
         axios.get('/tasks').then((
                 response
