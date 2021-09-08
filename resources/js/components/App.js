@@ -14,6 +14,7 @@ export default class App extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.renderTasks = this.renderTasks.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
+        this.handleUpdate = this.handleUpdate.bind(this);
     }
     handleChange(e) {
         this.setState({
@@ -75,6 +76,11 @@ export default class App extends Component {
         this.setState({ tasks: updatedTasks });
         // make delete request to the backend
         axios.delete(`/tasks/${id}`);
+    }
+    handleUpdate(id) {
+        axios.put(`/tasks/${id}`).then(response => {
+            this.getTasks();
+        });
     }
     render() {
         return (

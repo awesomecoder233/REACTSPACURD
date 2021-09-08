@@ -1953,6 +1953,7 @@ var App = /*#__PURE__*/function (_Component) {
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.renderTasks = _this.renderTasks.bind(_assertThisInitialized(_this));
     _this.handleDelete = _this.handleDelete.bind(_assertThisInitialized(_this));
+    _this.handleUpdate = _this.handleUpdate.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -2041,6 +2042,15 @@ var App = /*#__PURE__*/function (_Component) {
       }); // make delete request to the backend
 
       axios__WEBPACK_IMPORTED_MODULE_2___default().delete("/tasks/".concat(id));
+    }
+  }, {
+    key: "handleUpdate",
+    value: function handleUpdate(id) {
+      var _this5 = this;
+
+      axios__WEBPACK_IMPORTED_MODULE_2___default().put("/tasks/".concat(id)).then(function (response) {
+        _this5.getTasks();
+      });
     }
   }, {
     key: "render",
