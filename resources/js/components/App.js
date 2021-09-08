@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 export default class App extends Component {
     constructor(props) {
@@ -48,6 +49,9 @@ export default class App extends Component {
                         >
                             Delete
                         </button>
+                        <Link className="btn btn-sm btn-success" to={`/${task.id}/edit`}>
+                            Edit
+                        </Link>
                     </p>
                 </div>
             </div>
