@@ -1847,7 +1847,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_App__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/App */ "./resources/js/components/App.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/esm/react-router.js");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module './components/TaskEdit'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _components_TaskEdit__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/TaskEdit */ "./resources/js/components/TaskEdit.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
  // import App component
@@ -1866,7 +1866,7 @@ if (document.getElementById('root')) {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Switch, {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Route, {
           path: "/:id/edit",
-          component: Object(function webpackMissingModule() { var e = new Error("Cannot find module './components/TaskEdit'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()),
+          component: _components_TaskEdit__WEBPACK_IMPORTED_MODULE_3__.default,
           exact: true
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_App__WEBPACK_IMPORTED_MODULE_2__.default, {})]
       })
@@ -2096,6 +2096,20 @@ var App = /*#__PURE__*/function (_Component) {
 
   return App;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/TaskEdit.js":
+/*!*********************************************!*\
+  !*** ./resources/js/components/TaskEdit.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 
 
